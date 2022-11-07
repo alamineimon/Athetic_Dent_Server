@@ -1,0 +1,56 @@
+[
+     {
+    "id": "1",
+    "name": "Cox's bazar",
+    "seller": "Icredible Trip",
+    "price": "$899",
+    "ratings": 5,
+    "describe": "Cox’s Bazar is a town on the southeast coast of Bangladesh. It’s known for its very long, sandy beachfront, stretching from Sea Beach in the north to Kolatoli Beach in the south. Aggameda Khyang monastery is home to bronze statues and centuries-old Buddhist manuscripts. South of town, the tropical rainforest of Himchari National Park has waterfalls and many birds. North, sea turtles breed on nearby Sonadia Island.",
+    "img": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/10/e2/f8/43/longest-sea-beach-in.jpg?w=1200&h=-1&s=1"
+  },
+    {
+    "id": "2",
+    "name": "Sajek valley",
+    "seller": "Icredible Trip",
+    "price": "$999",
+    "ratings": 5,
+    "describe": "Sajek Tripuri Valley is one of the most popular tourist spots in Bangladesh situated among the hills of the Kasalong range of mountains in Sajek union, Baghaichhari Upazila in Rangamati District. The valley is 2,000 feet above sea level. Sajek Tripuri Valley is known as the Queen of Hills & Roof of Rangamati",
+    "img": "https://easyshop.com.bd/wp-content/uploads/2021/05/cover22-870x555-1.jpg"
+  },
+  {
+    "id": "3",
+    "name": "The Sundarbans",
+    "seller": "Icredible Trip",
+    "price": "$699",
+    "ratings": 4,
+    "describe": "Sundarbans is a mangrove area in the delta formed by the confluence of the Padma, Brahmaputra and Meghna Rivers in the Bay of Bengal. It spans the area from the Baleswar River in Bangladesh's division of Khulna to the Hooghly River in India's state of West Bengal",
+    "img": "https://upload.wikimedia.org/wikipedia/commons/2/23/Sundarban_Tiger.jpg"
+  },
+   {
+    "id": "4",
+    "name": "Srimangal",
+    "seller": "Icredible Trip",
+    "price": "$599",
+    "ratings": 4,
+    "describe": "Sreemangal is often referred to as the 'tea capital' of Bangladesh, and is most famous for its tea fields. Other than tea, the rubber, pineapple, wood, betel, and lemon industries also exist in the upazila.",
+    "img": "http://chokkor.com/wp-content/uploads/2018/10/Sreemangal-1.jpg"
+  },
+    {
+    "id": "5",
+    "name": "Srimangal",
+    "seller": "Icredible Trip",
+    "price": "$899",
+    "ratings": 5,
+    "describe": "Saint Martin is part of the Leeward Islands in the Caribbean Sea. It comprises 2 separate countries, divided between its northern French side, called Saint-Martin, and its southern Dutch side, Sint Maarten. The island is home to busy resort beaches and secluded coves. It's also known for fusion cuisine, vibrant nightlife and duty-free shops selling jewelry and liquor",
+    "img": "http://t1.gstatic.com/licensed-image?q=tbn:ANd9GcRsjYFyk4cbTSYXCh6rOGJB7dFNrglXd_5eV23KVhIp-Sc0BRDsSYmUIAH7dka4eOF-"
+  },
+  {
+    "id": "6",
+    "name": "Bagerhat",
+    "seller": "Icredible Trip",
+    "price": "$799",
+    "ratings": 4,
+    "describe": "Bagerhat was the capital of Hazrat Khan Jahan Ali—the 15th-century pioneer of the Sundarbans region of the southern Padma River (Ganges [Ganga] River) delta—and contains the ruins of his mausoleum and a large mosque (Sat Gumbaz; built c. 1459). The town is connected by road and rail with Khulna.",
+    "img": "https://live.staticflickr.com/6181/6060876513_b68649de3b_b.jpg"
+  }
+]
