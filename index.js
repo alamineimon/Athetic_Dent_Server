@@ -16,13 +16,11 @@ const client = new MongoClient(uri, {
   serverApi: ServerApiVersion.v1,
 });
 
-
 async function run() {
   try {
     const serviceCollection = client.db("athetic").collection("services");
     const reviewsCollection = client.db("athetic").collection("review");
 
-    //all service data loaad
     app.get("/services", async (req, res) => {
       const query = {};
       const cursor = serviceCollection.find(query);
@@ -30,18 +28,16 @@ async function run() {
       res.send(services);
     });
 
-
-    // load a single data from mangodb 
-        app.get('/services/:id' , async(req, res)=>{
-            const id = req.params.id;
-            const query = {_id: ObjectId(id)}
-            const services = await serviceCollection.findOne(query)
-            res.send(services);
-        });
-    app.post('/review', async(req, res)=>{
-            const review = req.body ;
-            const result = await reviewsCollection.insertOne(review);
-            res.send(result) 
+    app.get("/services/:id", async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: ObjectId(id) };
+      const services = await serviceCollection.findOne(query);
+      res.send(services);
+    });
+    app.post("/review", async (req, res) => {
+      const review = req.body;
+      const result = await reviewsCollection.insertOne(review);
+      res.send(result);
     });
 
     app.get("/allreview", async (req, res) => {
@@ -57,8 +53,6 @@ async function run() {
       res.send(review);
     });
 
-
-
     app.delete("/allreview/:id", async (req, res) => {
       const id = req.params.id;
       const query = { _id: ObjectId(id) };
@@ -67,21 +61,48 @@ async function run() {
     });
 
 
-  }
-  finally{
+    app.get("/allreview/:id", async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: ObjectId(id) };
+      const result = await reviewsCollection.findOne(query);
+      res.send(result);
+    });
+    app.put("/allreview/:id", async (req, res) => {
+      const id = req.params.id;
+      const filter = { _id: ObjectId(id) };
+      const user = req.body;
+      const option = { upsert: true };
+      const updatedUser = {
+        $set: {
+          message: user.message,
+        },
+      };
+      const result = await reviewsCollection.updateOne(
+        filter,
+        updatedUser,
+        option
+      );
+      res.send(result);
+    });
 
+    app.post('/addServices', async(req, res)=>{
+            const addService = req.body ;
+            console.log(addService);
+            const result = await serviceCollection.insertOne(addService);
+            res.send(result);
+        })
+
+
+
+  } finally {
   }
 }
- run().catch(err =>console.error(err))
-
-
-
+run().catch((err) => console.error(err));
 
 app.get("/", (res, req) => {
-  req.send("Incredible Trip server is running");
+  req.send("Athetic Dent server is running");
 });
 
-
 app.listen(port, () => {
-  console.log(`Incredible Trip Server running onporrt: ${port}`);
+  console.log(`Athetic Dent Server running onporrt: ${port}`);
 });
