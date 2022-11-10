@@ -29,6 +29,13 @@ async function run() {
       const services = await cursor.toArray();
       res.send(services);
     });
+// get 3  service with condditionally
+       app.get("/", async (req, res) => {
+         const query = {};
+         const cursor = serviceCollection.find(query).limit(3);
+         const services = await cursor.toArray();
+         res.send(services);
+       });
 
     //for get service  with  id
     app.get("/services/:id", async (req, res) => {
