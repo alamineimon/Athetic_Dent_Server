@@ -21,6 +21,8 @@ async function run() {
     const serviceCollection = client.db("athetic").collection("services");
     const reviewsCollection = client.db("athetic").collection("review");
 
+
+    //for get all service
     app.get("/services", async (req, res) => {
       const query = {};
       const cursor = serviceCollection.find(query);
@@ -28,18 +30,23 @@ async function run() {
       res.send(services);
     });
 
+    //for get service  with  id
     app.get("/services/:id", async (req, res) => {
       const id = req.params.id;
       const query = { _id: ObjectId(id) };
       const services = await serviceCollection.findOne(query);
       res.send(services);
     });
+
+//for  possting  review
     app.post("/review", async (req, res) => {
       const review = req.body;
       const result = await reviewsCollection.insertOne(review);
       res.send(result);
     });
 
+
+    //for  get  all  review
     app.get("/allreview", async (req, res) => {
       let query = {};
       if (req.query.email) {
@@ -53,6 +60,7 @@ async function run() {
       res.send(review);
     });
 
+    //for delete review with  id
     app.delete("/allreview/:id", async (req, res) => {
       const id = req.params.id;
       const query = { _id: ObjectId(id) };
@@ -60,13 +68,15 @@ async function run() {
       res.send(result);
     });
 
-
+// for  get  review with id
     app.get("/allreview/:id", async (req, res) => {
       const id = req.params.id;
       const query = { _id: ObjectId(id) };
       const result = await reviewsCollection.findOne(query);
       res.send(result);
     });
+
+//for updaate  review with  id
     app.put("/allreview/:id", async (req, res) => {
       const id = req.params.id;
       const filter = { _id: ObjectId(id) };
@@ -85,6 +95,7 @@ async function run() {
       res.send(result);
     });
 
+    //for post service
     app.post('/addServices', async(req, res)=>{
             const addService = req.body ;
             console.log(addService);
