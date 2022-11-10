@@ -61,7 +61,7 @@ async function run() {
       res.send(services);
     });
 
-//for  possting  review
+//for posting  review
     app.post("/review", async (req, res) => {
       const review = req.body;
       const result = await reviewsCollection.insertOne(review);
