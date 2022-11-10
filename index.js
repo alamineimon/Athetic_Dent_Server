@@ -16,21 +16,21 @@ const client = new MongoClient(uri, {
   useUnifiedTopology: true,
   serverApi: ServerApiVersion.v1,
 });
-function verifyJWT(req, res, next) {
-  const authHeader = req.headers.authorization;
-  if (!authHeader) {
-    return res.status(401).send({ message: "Unauthorized Access" });
-  }
-  const token = authHeader.split(" ")[1];
-  // console.log(token);
-  jwt.verify(token, process.env.ACCESS_TOKEN_SECRECT, function (err, decoded) {
-    if (err) {
-      res.status(403).send({ message: "Forbidden Access" });
-    }
-    req.decoded = decoded;
-    next();
-  });
-}
+// function verifyJWT(req, res, next) {
+//   const authHeader = req.headers.authorization;
+//   if (!authHeader) {
+//     return res.status(401).send({ message: "Unauthorized Access" });
+//   }
+//   const token = authHeader.split(" ")[1];
+//   // console.log(token);
+//   jwt.verify(token, process.env.ACCESS_TOKEN_SECRECT, function (err, decoded) {
+//     if (err) {
+//       res.status(403).send({ message: "Forbidden Access" });
+//     }
+//     req.decoded = decoded;
+//     next();
+//   });
+// }
 
 async function run() {
   try {
@@ -70,13 +70,8 @@ async function run() {
 
 
     //for  get  all  review
-    app.get("/allreview", verifyJWT, async (req, res) => {
-      const decoded = req.decoded;
-            // console.log(decoded);
-            if(decoded.email !== req.query.email ){
-                res.status(403).send({message: "Forbidden Access"})
-            }
-
+    app.get("/allreview", async (req, res) => {
+    
             let query = {};
             if(req.query.email){
                 query={
@@ -131,14 +126,14 @@ async function run() {
             res.send(result);
     })
 
-    app.post("/jwt", async (req, res) => {
-      const user = req.body;
-      const token = jwt.sign(user, process.env.ACCESS_TOKEN_SECRECT, {
-        expiresIn: "2h",
-      });
-      res.send({ token });
-      // console.log(token)
-    });
+    // app.post("/jwt", async (req, res) => {
+    //   const user = req.body;
+    //   const token = jwt.sign(user, process.env.ACCESS_TOKEN_SECRECT, {
+    //     expiresIn: "2h",
+    //   });
+    //   res.send({ token });
+    //   // console.log(token)
+    // });
 
 
 
